@@ -1,0 +1,21 @@
+{
+  "uuid": "962f9229-4ee0-4e0d-9bf6-7d2eca6a98e3",
+  "name": "Iterate HashMap",
+  "description": "Iterate HashMap",
+  "extraSearchTerms": [],
+  "tags": [
+    "Collection",
+    "HashMap",
+    "Iterate"
+  ],
+  "code": "HashMap\u003cString, Integer\u003e ${myHashMap:newName(java.util.HashMap)} \u003d new HashMap\u003cString, Integer\u003e();\r\nIterator ${it:newName(java.util.Iterator)} \u003d ${myHashMap}.entrySet().iterator();\r\n\t    while (${it}.hasNext()) {\r\n\t        Map.Entry ${pair:newName(java.util.Map.Entry)} \u003d (Map.Entry)${it}.next();\r\n\t        System.out.println(${pair}.getKey() + \" \u003d \" + ${pair}.getValue());\r\n\t    }\r\n${:import(java.util.HashMap, java.util.Iterator, java.util.Map)}${cursor}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
