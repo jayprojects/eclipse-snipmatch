@@ -1,0 +1,2 @@
+# eclipse-snipmatch
+snipmatch repository
