@@ -1,0 +1,21 @@
+{
+  "uuid": "e36b29fc-192f-4750-9afb-819134f9b39f",
+  "name": "StringBuffer object",
+  "description": "create new stringbuilder ojbect. syncronized",
+  "extraSearchTerms": [],
+  "tags": [
+    "Text",
+    "String",
+    "StringBuffer"
+  ],
+  "code": "StringBuffer ${sb:newName(java.lang.StringBuffer)} \u003d new StringBuffer();\r\n${sb}.append(\"\");\r\n${cursor}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

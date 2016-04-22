@@ -1,0 +1,21 @@
+{
+  "uuid": "90829c02-8e23-4ae4-ada8-414f26dc6333",
+  "name": "StringBuilder new",
+  "description": "create new StringBuilder. StringBuilder is not Syncronized",
+  "extraSearchTerms": [],
+  "tags": [
+    "Text",
+    "String",
+    "StringBuilder"
+  ],
+  "code": "StringBuilder ${sb:newName(java.lang.StringBuilder)} \u003d new StringBuilder();\r\n${sb}.append(\"\");\r\n${cursor}\r\n",
+  "location": "FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
