@@ -1,0 +1,20 @@
+{
+  "uuid": "aeef7bbd-cb18-4307-93b5-5c482596bd44",
+  "name": "Print 2D Array",
+  "description": "Systemout with spacer",
+  "extraSearchTerms": [],
+  "tags": [
+    "PrintArray",
+    "sysoutarray"
+  ],
+  "code": "\tpublic static void prin2dArray(int[][] array, String spacer) {\r\n\t\tfor (int i \u003d 0; i \u003c array.length; i++) {\r\n\t\t\tfor (int j \u003d 0; j \u003c array[i].length; j++) {\r\n\t\t\t\tSystem.out.print(spacer + array[i][j]);\r\n\t\t\t}\r\n\t\t\tSystem.out.println();\r\n\t\t}\r\n\t}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
