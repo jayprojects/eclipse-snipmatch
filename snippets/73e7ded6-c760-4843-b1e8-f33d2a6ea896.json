@@ -1,0 +1,19 @@
+{
+  "uuid": "73e7ded6-c760-4843-b1e8-f33d2a6ea896",
+  "name": "Random Number",
+  "description": "Generate new random number from min to max",
+  "extraSearchTerms": [],
+  "tags": [
+    "Random Number"
+  ],
+  "code": "Random rand \u003d new Random();\r\nint ${randomNum:newName(int)} \u003d rand.nextInt((${max} - ${min}) + 1) + ${min};\r\n${:import(java.util.Random)}${cursor}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
