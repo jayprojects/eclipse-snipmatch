@@ -1,0 +1,22 @@
+{
+  "uuid": "3025e528-c334-449c-a167-a6f6f18f68c0",
+  "name": "ReadFile FileInputStream (method)",
+  "description": "Read file in bytes chuncks using FileInputStream",
+  "extraSearchTerms": [],
+  "tags": [
+    "File",
+    "Large File",
+    "Read File Bytes",
+    "FileInputStream"
+  ],
+  "code": "//File input stream mostly used for binary file. text file also can read \r\npublic static byte[] readFileBytesFileInputStream(String filePath) throws IOException {\r\n\t\r\n\tInputStream is \u003d new FileInputStream(filePath); //Also takes File object\r\n\tByteArrayOutputStream os \u003d new ByteArrayOutputStream();\r\n\t//we can also have a DataOutputStram in the case we need read something ohte than byte\r\n\t//DataOutputStream dos \u003d new DataOutputStream(baos); \r\n\t//and then write to dos instead of os!\r\n\tbyte[] data \u003d new byte[4096];\r\n\tint count;\r\n\twhile ((count \u003d is.read(data)) !\u003d -1) {\r\n\t\tos.write(data, 0, count);\r\n\t}\r\n\tos.close();\r\n\tis.close();\r\n\r\n\treturn os.toByteArray();\r\n}\r\n\r\n${:import(java.io.ByteArrayOutputStream, java.io.FileInputStream, java.io.IOException, java.io.InputStream)}${cursor}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

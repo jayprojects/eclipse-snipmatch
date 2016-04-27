@@ -1,0 +1,20 @@
+{
+  "uuid": "6421d8f6-c45e-42f8-862c-d3f2282cd000",
+  "name": "Read File BufferedReader",
+  "description": "Read Text file line by line using BufferedReader",
+  "extraSearchTerms": [],
+  "tags": [
+    "BufferedReader",
+    "Read File"
+  ],
+  "code": "StringBuffer sb \u003d new StringBuffer();\r\n\r\n\t\tString filePath \u003d \"C:\\\\Files\\\\Backup\\\\4-26-2016 desktop\\\\Tree Traversal.txt\";\r\n\t\t//File reader Also Takes a File object in place of File path\r\n\t\t//if bufferedreader declared outside of try statement, it must be closed\r\n\t\t\r\n\t\ttry (BufferedReader br \u003d new BufferedReader(new FileReader(filePath))) {\r\n\t\t    String line;\r\n\t\t    while ((line \u003d br.readLine()) !\u003d null) {\r\n\t\t        //System.out.println(line);\r\n\t\t    \tsb.append(line);\r\n\t\t    \tsb.append(\"\\n\");\r\n\t\t    }\r\n\t\t}catch(IOException ioe){\r\n\t\t\tSystem.out.println(ioe.getMessage());\r\n\t\t}\r\n\t\t\r\n\t\tSystem.out.println(sb.toString());",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

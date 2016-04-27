@@ -1,0 +1,20 @@
+{
+  "uuid": "e80855a8-4028-4231-9cdc-ff43bfe0c54c",
+  "name": "byte to int or int to byte",
+  "description": "explanation and conversion",
+  "extraSearchTerms": [],
+  "tags": [
+    "convert",
+    "byte"
+  ],
+  "code": "//usally byte and int premitives are interchangable \r\n//int\u003dbyte; would work fine as long as the byte has an int value\r\n//byte\u003d(int)int; would work if int is less than 128, 128 would become -1, and 256 would become 0 and so on\r\n//Integer class are 32bit hence become 4 bytes! when convert Integer to byte[]\r\n//non premitive Byte class has intValue method\r\n\r\n((Byte)${b:var(byte)}).intValue()\r\n\r\n//or\r\nint ${x}\u003d125;\r\nbyte ${b}\u003d(byte)${x};\r\nint y\u003d${b};\r\n${cursor}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

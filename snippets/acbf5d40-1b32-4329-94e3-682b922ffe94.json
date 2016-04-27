@@ -1,0 +1,20 @@
+{
+  "uuid": "acbf5d40-1b32-4329-94e3-682b922ffe94",
+  "name": "Simple Linked List (class)",
+  "description": "Full implementation version 1",
+  "extraSearchTerms": [],
+  "tags": [
+    "LinkedList",
+    "List"
+  ],
+  "code": "public class MyList {\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tMyLinkedList list \u003d new MyLinkedList();\r\n\t\tlist.addTop(\"Jay\");\r\n\t\tlist.addTop(\"Sam\");\r\n\t\tlist.addTop(\"Ana\");\r\n\t\tlist.addTop(\"bob\");\r\n\t\tlist.addTop(\"Mala\");\r\n\r\n\t\tlist.display();\r\n\t\tSystem.out.println();\r\n\t\t// list.removeTop();\r\n\t\tlist.remove(\"Ana\");\r\n\t\tlist.display();\r\n\t}\r\n\r\n}\r\n\r\nclass MyNode {\r\n\tpublic String value;\r\n\tpublic MyNode next;\r\n\r\n\tpublic MyNode(String value) {\r\n\t\tthis.value \u003d value;\r\n\t}\r\n\r\n\tpublic String toString() {\r\n\t\treturn value;\r\n\t}\r\n\r\n}\r\n\r\nclass MyLinkedList {\r\n\tpublic MyNode root;\r\n\r\n\tpublic MyLinkedList() {\r\n\t}\r\n\r\n\tpublic void addTop(String val) {\r\n\t\tMyNode mn \u003d new MyNode(val);\r\n\t\tmn.next \u003d root;\r\n\t\troot \u003d mn;\r\n\t}\r\n\r\n\tpublic void removeTop() {\r\n\t\tif (null !\u003d root) {\r\n\t\t\troot \u003d root.next;\r\n\t\t}\r\n\t}\r\n\r\n\tpublic void remove(String value) {\r\n\t\tMyNode n \u003d root;\r\n\t\tif (n.value.equals(value)) {\r\n\t\t\troot \u003d root.next;\r\n\t\t} else {\r\n\t\t\twhile (n !\u003d null) {\r\n\t\t\t\tif (n.next.value.equals(value)) {\r\n\t\t\t\t\tn.next \u003d n.next.next;\r\n\t\t\t\t\tbreak;\r\n\t\t\t\t}\r\n\t\t\t\tn \u003d n.next;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\tpublic void display() {\r\n\t\tMyNode n \u003d root;\r\n\t\twhile (n !\u003d null) {\r\n\t\t\tSystem.out.println(n.toString());\r\n\t\t\tn \u003d n.next;\r\n\t\t}\r\n\t}\r\n}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

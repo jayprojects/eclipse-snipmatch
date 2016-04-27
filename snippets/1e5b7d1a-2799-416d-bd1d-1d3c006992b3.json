@@ -1,0 +1,21 @@
+{
+  "uuid": "1e5b7d1a-2799-416d-bd1d-1d3c006992b3",
+  "name": "ReadTextFileLines nio",
+  "description": "Read Text file lines to list of string using nio lib",
+  "extraSearchTerms": [],
+  "tags": [
+    "nio",
+    "ReadFile",
+    "File Lines"
+  ],
+  "code": "//encoding parameter is optional\r\nList\u003cString\u003e ${lines} \u003d Files.readAllLines(Paths.get(${filePath}), StandardCharsets.UTF_8);\r\n${:import(java.nio.file.Files, java.nio.file.Paths, java.util.List)}${cursor}",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

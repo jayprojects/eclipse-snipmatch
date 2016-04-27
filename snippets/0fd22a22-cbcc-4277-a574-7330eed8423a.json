@@ -1,0 +1,21 @@
+{
+  "uuid": "0fd22a22-cbcc-4277-a574-7330eed8423a",
+  "name": "Print List (method)",
+  "description": "Array List or LinkedList etc",
+  "extraSearchTerms": [],
+  "tags": [
+    "Print",
+    "List",
+    "LinkedList"
+  ],
+  "code": "public static void printList(List list)\r\n{\r\n\tfor(Object i:list){\r\n\t\tSystem.out.println(i);\r\n\t}\r\n\t\t\r\n}",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

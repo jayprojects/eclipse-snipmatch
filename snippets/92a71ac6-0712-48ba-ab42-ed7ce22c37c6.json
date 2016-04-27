@@ -1,0 +1,22 @@
+{
+  "uuid": "92a71ac6-0712-48ba-ab42-ed7ce22c37c6",
+  "name": "File Read Wrie (Methods) using java.nio lib",
+  "description": "Methods to read write files uisng scnners, buffer and default, with or without charset",
+  "extraSearchTerms": [],
+  "tags": [
+    "Utils",
+    "File",
+    "FileRead",
+    "FileWrite"
+  ],
+  "code": "List\u003cString\u003e readSmallTextFileLines(String filePath) throws IOException {\r\n\t\treturn readSmallTextFileLines(filePath, StandardCharsets.UTF_8);\r\n\t}\r\n\t\r\n\tList\u003cString\u003e readSmallTextFileLines(String filePath, Charset cs) {\r\n\t\tList\u003cString\u003e lines \u003d new ArrayList\u003c\u003e();\r\n\t\ttry{\r\n\t\t\tPath path \u003d Paths.get(filePath);\r\n\t\t\tlines\u003d Files.readAllLines(path, cs);\r\n\t\t}catch(IOException ioe){\r\n\t\t\tSystem.out.println(ioe.getMessage());\r\n\t\t}\r\n\t\treturn lines;\r\n\t}\r\n\t\r\n\r\n\tvoid writeSmallTextFileLines(List\u003cString\u003e lines, String filePath) {\r\n\t\twriteSmallTextFileLines(lines, filePath, StandardCharsets.UTF_8);\r\n\t\t\r\n\t}\r\n\t\r\n\tvoid writeSmallTextFileLines(List\u003cString\u003e lines, String filePath, Charset cs){\r\n\t\ttry{\r\n\t\t\tPath path \u003d Paths.get(filePath);\r\n\t\t\tFiles.write(path, lines, cs);\r\n\t\t}catch(IOException ioe){\r\n\t\t\tSystem.out.println(ioe.getMessage());\r\n\t\t}\r\n\t}\r\n\r\n\t// For larger files\r\n\tList\u003cString\u003e readLargerFileUsingScanner(String filePath){\r\n\t\treturn readLargerFileUsingScanner(filePath, StandardCharsets.UTF_8);\r\n\t}\r\n\t\r\n\tList\u003cString\u003e readLargerFileUsingScanner(String filePath, Charset cs){\r\n\t\tList\u003cString\u003e lines \u003d new ArrayList\u003c\u003e();\r\n\t\tPath path \u003d Paths.get(filePath);\r\n\t\ttry (Scanner scanner \u003d new Scanner(path, cs.name())) {\r\n\t\t\twhile (scanner.hasNextLine()) {\r\n\t\t\t\tlines.add(scanner.nextLine());\r\n\t\t\t}\r\n\t\t}catch(IOException ioe){\r\n\t\t\tSystem.out.println(ioe.getMessage());\r\n\t\t}\r\n\t\treturn lines;\r\n\t}\r\n\r\n\tList\u003cString\u003e readTextFileUsingBufferReader(String filePath){\r\n\t\treturn readTextFileUsingBufferReader(filePath, StandardCharsets.UTF_8);\r\n\t}\r\n\t\r\n\tList\u003cString\u003e readTextFileUsingBufferReader(String filePath, Charset cs){\r\n\t\tList\u003cString\u003e lines \u003d new ArrayList\u003c\u003e();\r\n\t\tPath path \u003d Paths.get(filePath);\r\n\t\ttry (BufferedReader reader \u003d Files.newBufferedReader(path, cs)) {\r\n\t\t\tString line \u003d null;\r\n\t\t\twhile ((line \u003d reader.readLine()) !\u003d null) {\r\n\t\t\t\tlines.add(line);\r\n\t\t\t}\r\n\t\t}catch(IOException ioe){\r\n\t\t\tSystem.out.println(ioe.getMessage());\r\n\t\t}\r\n\t\treturn lines;\r\n\t}\r\n\r\n\tvoid writeLargerTextFile(String filePath, List\u003cString\u003e lines) {\r\n\t\twriteLargerTextFile(filePath, lines, StandardCharsets.UTF_8 );\r\n\t}\r\n\t\r\n\tvoid writeLargerTextFile(String filePath, List\u003cString\u003e lines, Charset cs) {\r\n\t\tPath path \u003d Paths.get(filePath);\r\n\t\ttry (BufferedWriter writer \u003d Files.newBufferedWriter(path, cs)) {\r\n\t\t\tfor (String line : lines) {\r\n\t\t\t\twriter.write(line);\r\n\t\t\t\twriter.newLine();\r\n\t\t\t}\r\n\t\t}catch(IOException ioe){\r\n\t\t\tSystem.out.println(ioe.getMessage());\r\n\t\t}\r\n\t}",
+  "location": "FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

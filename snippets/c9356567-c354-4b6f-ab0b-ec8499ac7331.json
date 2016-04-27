@@ -1,0 +1,20 @@
+{
+  "uuid": "c9356567-c354-4b6f-ab0b-ec8499ac7331",
+  "name": "ReadFileBytes nio",
+  "description": "Reads all the bytes from a file using nio library",
+  "extraSearchTerms": [],
+  "tags": [
+    "ReadBytes",
+    "File"
+  ],
+  "code": "byte[] ${bytes:newName(\u0027byte[]\u0027)} \u003d Files.readAllBytes(Paths.get(${filePath:var(java.lang.String)}));\r\n${:import(java.nio.file.Files, java.nio.file.Paths)}${cursor}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
