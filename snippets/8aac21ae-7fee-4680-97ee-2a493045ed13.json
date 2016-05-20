@@ -1,0 +1,26 @@
+{
+  "uuid": "8aac21ae-7fee-4680-97ee-2a493045ed13",
+  "name": "JSON read write with gson (method)",
+  "description": "Parse and create json using gson lib",
+  "extraSearchTerms": [],
+  "tags": [
+    "json",
+    "gson",
+    "parse json"
+  ],
+  "code": "/*\r\n //http://2das.net/test/books.json\r\n\t{\r\n\t   \"book\": [\r\n\t      {\r\n\t         \"isbn\":\"01\",\r\n\t         \"title\": \"Java\",\r\n\t         \"author\": \"Herbert Schildt\"\r\n\t      },\r\n\t\t\r\n\t      {\r\n\t         \"isbn\":\"07\",\r\n\t         \"title\": \"C++\",\r\n\t         \"author\": \"E.Balagurusamy\"\r\n\t      }\r\n\t   ]\r\n\t}\r\n */\r\n\r\nclass Book{\r\n\tString ${isbn:newName(java.lang.String)};\r\n\tString ${title:newName(java.lang.String)};\r\n\tString ${author:newName(java.lang.String)};\r\n}\r\nclass jsonRootObject{\r\n\tBook[] ${books:newName(\u0027demo.Test.Book[]\u0027)};\r\n}\r\n\r\npublic void parse() {\r\n\t\r\n\tString ${str:newName(java.lang.String)} \u003d getUrlResponseText(\"http://2das.net/test/books.json\");\r\n\t//System.out.println(str);\r\n\t\r\n\tGson ${gson:newName(com.google.gson.Gson)} \u003d new Gson();\r\n\tjsonRootObject ${ro:newName(demo.Test.jsonRootObject)} \u003d ${gson}.fromJson(${str}, jsonRootObject.class);\r\n\tfor(Book ${b:newName(demo.Test.Book)}:${ro}.${books}){\r\n\t\tSystem.out.println(${b}.${title});\r\n\t}\r\n\t\r\n\tGson ${gson2:newName(com.google.gson.Gson)} \u003d new GsonBuilder().create();\r\n    ${gson2}.toJson(${ro}, System.out);\r\n    \r\n}\r\n${:import(com.google.gson.Gson, com.google.gson.GsonBuilder)}${cursor}\r\n",
+  "location": "GENERIC_FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "com.google.gson",
+      "artifactId": "com.google.gson",
+      "version": "0.0.0"
+    },
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "uuid": "aedf761b-1c0e-4961-9a6f-2c5328e6bf92",
+  "name": "web.xml",
+  "description": "Basic webxml version 3.0",
+  "extraSearchTerms": [],
+  "tags": [
+    "web.xml"
+  ],
+  "code": "\u003c?xml version\u003d\"1.0\" encoding\u003d\"UTF-8\"?\u003e\r\n\u003cweb-app xmlns:xsi\u003d\"http://www.w3.org/2001/XMLSchema-instance\" xmlns\u003d\"http://java.sun.com/xml/ns/javaee\" xsi:schemaLocation\u003d\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd\" id\u003d\"WebApp_ID\" version\u003d\"3.0\"\u003e\r\n  \u003cdisplay-name\u003edynamicweb1\u003c/display-name\u003e\r\n  \u003cwelcome-file-list\u003e\r\n    \u003cwelcome-file\u003eindex.html\u003c/welcome-file\u003e\r\n    \u003cwelcome-file\u003eindex.jsp\u003c/welcome-file\u003e\r\n  \u003c/welcome-file-list\u003e\r\n\u003c/web-app\u003e",
+  "location": "GENERIC_FILE",
+  "filenameRestrictions": [],
+  "dependencies": []
+}

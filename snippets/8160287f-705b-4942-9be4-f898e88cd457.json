@@ -1,0 +1,27 @@
+{
+  "uuid": "8160287f-705b-4942-9be4-f898e88cd457",
+  "name": "SendEmail using gmail (class)",
+  "description": "send Email using gmail account both ssl and tls",
+  "extraSearchTerms": [],
+  "tags": [
+    "email",
+    "gmail",
+    "SSL",
+    "TLS"
+  ],
+  "code": "package demo;\r\nimport java.util.Properties;\r\nimport javax.mail.Message;\r\nimport javax.mail.MessagingException;\r\nimport javax.mail.PasswordAuthentication;\r\nimport javax.mail.Session;\r\nimport javax.mail.Transport;\r\nimport javax.mail.internet.AddressException;\r\nimport javax.mail.internet.InternetAddress;\r\nimport javax.mail.internet.MimeMessage;\r\npublic class SendEmail {\r\n\r\n\t//GMail via TLS\r\n\tstatic void doSendGmail(String ${emailSubject:newName(java.lang.String)}, String ${emailBody:newName(java.lang.String)}, String ${toEmail:newName(java.lang.String)}){\r\n\t\tString ${gmailId:newName(java.lang.String)}\u003d\"jmail.smtp@gmail.com\";\r\n\t\tString ${gmailPassword:newName(java.lang.String)}\u003d\"Pass\";\r\n\t\t\r\n\t\tProperties ${mailServerProperties:newName(java.util.Properties)} \u003d System.getProperties();\r\n\t\t${mailServerProperties}.put(\"mail.smtp.port\", \"587\");\r\n\t\t${mailServerProperties}.put(\"mail.smtp.auth\", \"true\");\r\n\t\t${mailServerProperties}.put(\"mail.smtp.starttls.enable\", \"true\");\r\n\t\t\r\n\t\ttry{\r\n\t\t// Step2\r\n\t\tSession ${getMailSession:newName(javax.mail.Session)} \u003d Session.getDefaultInstance(${mailServerProperties}, null);\r\n\t\tMimeMessage ${generateMailMessage:newName(javax.mail.internet.MimeMessage)} \u003d new MimeMessage(${getMailSession});\r\n\t\t${generateMailMessage}.addRecipient(Message.RecipientType.TO, new InternetAddress(${toEmail}));\r\n\t\t//generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress(\"test2@crunchify.com\"));\r\n\t\t${generateMailMessage}.setSubject(${emailSubject});\r\n\t\t${generateMailMessage}.setContent(${emailBody}, \"text/html\");\r\n\t\t\r\n\t\t// Step3\r\n\t\tTransport ${transport:newName(javax.mail.Transport)} \u003d ${getMailSession}.getTransport(\"smtp\");\r\n \r\n\t\t// Enter your correct gmail UserID and Password\r\n\t\t// if you have 2FA enabled then provide App Specific Password\r\n\t\t${transport}.connect(\"smtp.gmail.com\", ${gmailId}, ${gmailPassword});\r\n\t\t${transport}.sendMessage(${generateMailMessage}, ${generateMailMessage}.getAllRecipients());\r\n\t\t${transport}.close();\r\n\t\t}catch(Exception ${e:newName(java.lang.Exception)}){\r\n\t\t\tSystem.out.println(${e}.getMessage());\r\n\t\t}\r\n\t}\r\n\t//GMail via SSL\r\n\tstatic void doSendGmailSSL(String ${emailSubject1:newName(java.lang.String)}, String ${emailBody1:newName(java.lang.String)}, String ${toEmail1:newName(java.lang.String)}){\r\n\t\t\r\n\t\tString ${gmailId1:newName(java.lang.String)}\u003d\"jmail.smtp@gmail.com\";\r\n\t\tString ${gmailPassword1:newName(java.lang.String)}\u003d\"Pass\";\r\n\t\tString ${fromEmailAddress:newName(java.lang.String)}\u003d\"mail.smtp@gmail.com\";\r\n\t\t\r\n\t\tProperties ${props:newName(java.util.Properties)} \u003d new Properties();\r\n\t\t${props}.put(\"mail.smtp.host\", \"smtp.gmail.com\");\r\n\t\t${props}.put(\"mail.smtp.socketFactory.port\", \"465\");\r\n\t\t${props}.put(\"mail.smtp.socketFactory.class\", \"javax.net.ssl.SSLSocketFactory\");\r\n\t\t${props}.put(\"mail.smtp.auth\", \"true\");\r\n\t\t${props}.put(\"mail.smtp.port\", \"465\");\r\n\r\n\t\tSession ${session:newName(javax.mail.Session)} \u003d Session.getDefaultInstance(${props},\r\n\t\t\tnew javax.mail.Authenticator() {\r\n\t\t\t\tprotected PasswordAuthentication getPasswordAuthentication() {\r\n\t\t\t\t\treturn new PasswordAuthentication(${gmailId1}, ${gmailPassword1});\r\n\t\t\t\t}\r\n\t\t\t});\r\n\r\n\t\ttry {\r\n\t\t\tMessage ${message:newName(javax.mail.Message)} \u003d new MimeMessage(${session});\r\n\t\t\t${message}.setFrom(new InternetAddress(${fromEmailAddress}));\r\n\t\t\t${message}.setRecipients(Message.RecipientType.TO, InternetAddress.parse(${toEmail1}));\r\n\t\t\t${message}.setSubject(${emailSubject1});\r\n\t\t\t${message}.setText(${emailBody1});\r\n\t\t\tTransport.send(${message});\r\n\t\t} catch (MessagingException ${e1:newName(javax.mail.MessagingException)}) {\r\n\t\t\t//throw new RuntimeException(e);\r\n\t\t\tSystem.out.println(${e1}.getLocalizedMessage());\r\n\t\t}\r\n\t\r\n\t\t\r\n\t}\r\n\tpublic static void main(String[] ${args:newName(\u0027java.lang.String[]\u0027)}) {\r\n\t\tdoSendGmail(\"a diffeent test\", \"Hello how are you\", \"joywebmails@yahoo.com\");\r\n\r\n\t}\r\n\r\n}\r\n${:import(java.util.Properties, javax.mail.Message, javax.mail.MessagingException, javax.mail.PasswordAuthentication, javax.mail.Session, javax.mail.Transport, javax.mail.internet.InternetAddress, javax.mail.internet.MimeMessage)}${cursor}\r\n",
+  "location": "FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    },
+    {
+      "groupId": "com.sun.mail",
+      "artifactId": "javax.mail",
+      "version": "0.0.0"
+    }
+  ]
+}

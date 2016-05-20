@@ -1,0 +1,26 @@
+{
+  "uuid": "ec68b344-655e-4106-a1c0-fe02f09ac0ad",
+  "name": "Read json using org.json (method)",
+  "description": "Read json from string ro url using org.json library",
+  "extraSearchTerms": [],
+  "tags": [
+    "org.json",
+    "json",
+    "read json"
+  ],
+  "code": "/*\r\n\t //http://2das.net/test/books.json\r\n\t\t{\r\n\t\t   \"book\": [\r\n\t\t      {\r\n\t\t         \"isbn\":\"01\",\r\n\t\t         \"title\": \"Java\",\r\n\t\t         \"author\": \"Herbert Schildt\"\r\n\t\t      },\r\n\t\t\t\r\n\t\t      {\r\n\t\t         \"isbn\":\"07\",\r\n\t\t         \"title\": \"C++\",\r\n\t\t         \"author\": \"E.Balagurusamy\"\r\n\t\t      }\r\n\t\t   ]\r\n\t\t}\r\n\t */\r\n\t\r\n\tvoid readJson(){\r\n\t\ttry {\r\n\r\n\t\t\t//Get json object from the response text\r\n\t\t\tString str \u003d getUrlResponseText(\"http://2das.net/test/books.json\");\r\n\t\t\tJSONObject root \u003d new JSONObject(str);\r\n\r\n\t\t\t// or use the tokener\r\n\t\t\t// URI uri \u003d new URI(\"http://2das.net/test/books.json\");\r\n\t\t\t// JSONTokener tokener \u003d new JSONTokener(uri.toURL().openStream());\r\n\t\t\t// JSONObject root \u003d new JSONObject(tokener);\r\n\r\n\t\t\tJSONArray books \u003d root.getJSONArray(\"books\");\r\n\t\t\tfor (int i \u003d 0; i \u003c books.length(); i++) {\r\n\t\t\t\tJSONObject book \u003d books.getJSONObject(i);\r\n\t\t\t\tString title \u003d book.getString(\"title\");\r\n\t\t\t\tString author \u003d book.getString(\"author\");\r\n\t\t\t\tSystem.out.println(\"Title: \" + title + \" Author: \" + author);\r\n\t\t\t}\r\n\t\t} catch (Exception pe) {\r\n\r\n\t\t\tSystem.out.println(\"position: \" + pe.getMessage());\r\n\t\t\tSystem.out.println(pe);\r\n\t\t}\r\n\t}\r\n${:import(org.json.JSONArray, org.json.JSONObject)}${cursor}\r\n",
+  "location": "FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    },
+    {
+      "groupId": "org.codeartisans",
+      "artifactId": "org.json",
+      "version": "0.0.0"
+    }
+  ]
+}

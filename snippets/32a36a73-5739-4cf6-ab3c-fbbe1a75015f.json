@@ -1,0 +1,20 @@
+{
+  "uuid": "32a36a73-5739-4cf6-ab3c-fbbe1a75015f",
+  "name": "getUrlResponseText (method)",
+  "description": "read from url get url response",
+  "extraSearchTerms": [],
+  "tags": [
+    "Get Url Response",
+    "URL"
+  ],
+  "code": "public String getUrlResponseText(String url){\r\n    \tStringBuffer sb \u003d new StringBuffer();\r\n\t\ttry  {\r\n\t\t\t\r\n\t\t\t//create the input stream with url string\r\n\t\t\tInputStream is \u003d new URL(url).openStream();\r\n\t\t\t\r\n\t\t\t//of you need to modify the request object, we can do long way\r\n\t\t\t//HttpURLConnection request \u003d (HttpURLConnection) new URL(url).openConnection();\r\n\t\t\t//request.connect();\r\n\t\t\t//InputStream is \u003d (InputStream) request.getContent();\r\n\t\t\t\r\n\t\t\tBufferedReader br \u003d new BufferedReader(new InputStreamReader(is, Charset.forName(\"UTF-8\")));\r\n\t\t\t\r\n\t\t\tString line;\r\n\t\t\twhile ((line \u003d br.readLine()) !\u003d null) {\r\n\t\t\t\tsb.append(line);\r\n\t\t\t\tsb.append(\"\\n\");\r\n\t\t\t}\r\n\t\t\tbr.close();\r\n\t\t\tis.close();\r\n\t\t} catch (IOException ioe) {\r\n\t\t\tSystem.out.println(ioe.getMessage());\r\n\t\t} \r\n\t\treturn sb.toString();\r\n    }\r\n    \r\n${:import(java.io.BufferedReader, java.io.IOException, java.io.InputStream, java.io.InputStreamReader, java.net.URL, java.nio.charset.Charset)}${cursor}\r\n",
+  "location": "FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "uuid": "9981d2cd-2b37-4efa-a81a-63adc6b0727b",
+  "name": "Execution time",
+  "description": "measure execution time of code  block",
+  "extraSearchTerms": [],
+  "tags": [
+    "time",
+    "Execution time"
+  ],
+  "code": "long ${startTime:newName(long)} \u003d System.nanoTime();\r\n\r\n//code goes here\r\n\r\nSystem.out.println(\"Execution time in nanoseconds: \"+(System.nanoTime()-${startTime})); \r\n${cursor}\r\n",
+  "location": "FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
