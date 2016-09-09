@@ -1,0 +1,20 @@
+{
+  "uuid": "9c1a8465-2d87-4f97-b5eb-d072509d8921",
+  "name": "Sort Object List",
+  "description": "Sort a list of custom class object",
+  "extraSearchTerms": [],
+  "tags": [
+    "Sort",
+    "List"
+  ],
+  "code": "class ComparePersonsByName implements Comparator\u003cPerson\u003e{\r\n\t@Override\r\n\tpublic int compare(Person ${o1:newName(demo.LambdaTest.Person)}, Person ${o2:newName(demo.LambdaTest.Person)}) {\r\n\t\treturn ${o1}.Name.compareTo(${o2}.Name);\r\n\t}\r\n}\r\n//persons.sort(new ComparePersonsByName());\r\nCollections.sort(${persons:var(java.util.List)}, new ComparePersonsByName());\r\n\r\n\r\n//or\r\nCollections.sort(${persons}, new Comparator\u003cPerson\u003e() {\r\n\t@Override\r\n\tpublic int compare(Person ${o11:newName(demo.LambdaTest.Person)}, Person ${o21:newName(demo.LambdaTest.Person)}) {\r\n\t\treturn ${o11}.Name.compareTo(${o21}.Name);\r\n\t}\r\n});\r\n${:import(demo.LambdaTest.Person, java.util.Collections, java.util.Comparator)}${cursor}\r\n",
+  "location": "FILE",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
