@@ -1,0 +1,20 @@
+{
+  "uuid": "a2b1e918-7ba0-4e40-b245-2781ea2f89cb",
+  "name": "Scanner",
+  "description": "Read input from standard input or console",
+  "extraSearchTerms": [],
+  "tags": [
+    "Scanner",
+    "input"
+  ],
+  "code": "Scanner ${in:newName(java.util.Scanner)} \u003d new Scanner(System.in);\r\nint ${N:newName(int)} \u003d ${in}.nextInt();\r\n\r\n${in}.hasNext() //check eof\r\nin.next() // read next word\r\n${in}.nextLine() read next line\r\n\r\n${:import(java.util.Scanner)}${cursor}\r\n",
+  "location": "JAVA",
+  "filenameRestrictions": [],
+  "dependencies": [
+    {
+      "groupId": "jre",
+      "artifactId": "jre",
+      "version": "0.0.0"
+    }
+  ]
+}
